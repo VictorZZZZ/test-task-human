@@ -43,18 +43,18 @@ public class MainController {
     }
 
     @GetMapping(value = {"/lazy"})
-    public String lazyPage(Model model){
+    public String lazyPage(Model model) {
         PageRequest pageRequest = PageRequest.of(0, ELEMENTS_PER_PAGE);
         Page<Human> humanPage = humanService.findPaginated(pageRequest);
         model.addAttribute("humanPage", humanPage);
         return "lazy";
     }
 
-    @GetMapping(value = {"/getHuman"},produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = {"/getHuman"}, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<Human> getPage(@Param("page") Optional<Integer> page){
+    public List<Human> getPage(@Param("page") Optional<Integer> page) {
         int currentPage = page.orElse(1);
-        PageRequest pageRequest = PageRequest.of(currentPage-1, ELEMENTS_PER_PAGE);
+        PageRequest pageRequest = PageRequest.of(currentPage - 1, ELEMENTS_PER_PAGE);
         Page<Human> humanPage = humanService.findPaginated(pageRequest);
         return humanPage.getContent();
     }

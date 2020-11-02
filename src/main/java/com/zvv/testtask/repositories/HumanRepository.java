@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface HumanRepository extends JpaRepository<Human,Integer> {
+public interface HumanRepository extends JpaRepository<Human, Integer> {
     Page<Human> findAll(Pageable pageable);
 }
