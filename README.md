@@ -7,6 +7,7 @@ http://localhost:8080/
 
 3. Lazy Load
 http://localhost:8080/lazy
+сделал с помощью кнопки "показать ещё". А в целом можно прикрутить событие к scroll.
 
 
 
